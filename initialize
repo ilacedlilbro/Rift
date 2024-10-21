@@ -1,0 +1,17 @@
+local bw = 2619619496
+local bd = 4124008017
+local bwz = 6079884123
+local sw = 8542259458
+local gameid = game.GameId
+
+if gameid == bwz then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ilacedlilbro/Rift/refs/heads/main/games/bedwarz"))()
+elseif gameid == bd then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ilacedlilbro/Rift/refs/heads/main/games/bridgeduel"))()
+elseif gameid == bw then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ilacedlilbro/Rift/refs/heads/main/games/bedwars"))()
+elseif gameid == sw then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ilacedlilbro/Rift/refs/heads/main/games/skywars"))()
+else
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ilacedlilbro/Rift/refs/heads/main/games/universal"))()
+end
