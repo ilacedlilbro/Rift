@@ -1,1 +1,1 @@
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ilacedlilbro/Rift/refs/heads/main/initialize"))()
