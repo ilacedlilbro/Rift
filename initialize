@@ -1,17 +1,58 @@
+repeat task.wait() until game:IsLoaded()
+
+local Players = game:GetService("Players")
+local MarketplaceService = game:GetService("MarketplaceService")
+local queueteleport = syn and syn.queue_on_teleport or queue_on_teleport or fluxus and fluxus.queue_on_teleport
+
 local bw = 2619619496
 local bd = 4124008017
 local bwz = 6079884123
-local sw = 8542259458
-local gameid = game.GameId
+local gameid = game.PlaceId
+
+Players.LocalPlayer.OnTeleport:Connect(function(State)
+    if State == Enum.TeleportState.Started then
+        print("Teleportation started: Loading main script...")
+    end
+end)
 
 if gameid == bwz then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ilacedlilbro/Rift/refs/heads/main/games/bedwarz"))()
+    for i = 1, 10 do
+        warn("Bedwarz support is discontinued")
+    end
 elseif gameid == bd then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ilacedlilbro/Rift/refs/heads/main/games/bridgeduel"))()
+    print("Loading script for Bridge Duel...")
 elseif gameid == bw then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ilacedlilbro/Rift/refs/heads/main/games/bedwars"))()
-elseif gameid == sw then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ilacedlilbro/Rift/refs/heads/main/games/skywars"))()
+    for i = 1, 10 do
+        warn("Bedwars support is not done")
+    end
 else
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ilacedlilbro/Rift/refs/heads/main/games/universal"))()
+    local gameName = MarketplaceService:GetProductInfo(game.PlaceId).Name
+
+    if gameName:lower():find("skywars") then
+        print("Lobby detected. Changing settings...")
+
+        local args = {
+            [1] = "AutoQueue",
+            [2] = false
+        }
+        game:GetService("ReplicatedStorage"):FindFirstChild("4Ee"):FindFirstChild("e64f55ad-633d-483a-8cca-a53ae1f3b546"):FireServer(unpack(args))
+        wait(0.1)
+        
+        local args = {
+            [1] = false
+        }
+        game:GetService("ReplicatedStorage"):FindFirstChild("4Ee"):FindFirstChild("ef341646-ec97-45d2-9e62-ea82d59a23e5"):FireServer(unpack(args))
+        wait(0.1)
+
+        local args = {
+            [1] = true,
+            [2] = "EggWarsQuads"
+        }
+        game:GetService("ReplicatedStorage"):FindFirstChild("4Ee"):FindFirstChild("ef341646-ec97-45d2-9e62-ea82d59a23e5"):FireServer(unpack(args))
+        
+    elseif gameName:lower():find("eggwars") then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ilacedlilbro/Rift/refs/heads/main/games/skywars"))()
+    else
+        print("You're in a game: " .. gameName)
+    end
 end
