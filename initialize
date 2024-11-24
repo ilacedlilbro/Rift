@@ -22,8 +22,7 @@ if gameid == bwz then
 elseif gameid == bd then
     print("Loading script for Bridge Duel...")
 elseif gameid == bw then
-    for i = 1, 10 do
-        warn("Bedwars support is not done")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ilacedlilbro/Rift/refs/heads/main/games/bedwars"))()
     end
 else
     local gameName = MarketplaceService:GetProductInfo(game.PlaceId).Name
